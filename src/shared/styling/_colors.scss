@@ -1,0 +1,27 @@
+// Color primary shades
+$szss-color-primary: #007BF3;
+$szss-color-primary-shades: (
+	'': $szss-color-primary,
+	1: #80BDF980,
+	2: #80BDF9,
+	3: #7fbdfa,
+	4: #007BF380,
+	5: #0079f2,
+	6: #013195BD,
+	7: #013195,
+	8: #013094,
+);
+
+$szss-color-primary-1: map-get($szss-color-primary-shades, 1);
+$szss-color-primary-2: map-get($szss-color-primary-shades, 2);
+$szss-color-primary-3: map-get($szss-color-primary-shades, 3);
+$szss-color-primary-4: map-get($szss-color-primary-shades, 4);
+$szss-color-primary-5: map-get($szss-color-primary-shades, 5);
+$szss-color-primary-6: map-get($szss-color-primary-shades, 6);
+$szss-color-primary-7: map-get($szss-color-primary-shades, 7);
+$szss-color-primary-8: map-get($szss-color-primary-shades, 8);
+
+// Typography
+$szss-color-text: #3A3A3A;
+$szss-color-text-light: #ffffff;
+$szss-color-text-blue: #0782f5;

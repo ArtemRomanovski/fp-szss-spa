@@ -1,0 +1,26 @@
+@import './typography';
+
+// typography
+$szss-font-primary: Montserrat, sans-serif;
+
+// screen 
+$screen-size-0: 1920px;
+$screen-size-1: 1280px;
+$screen-size-2: 568px;
+$screen-size-3: 320px;
+
+$screens: (
+	// 1920px
+	"large-desktop": $screen-size-0,
+	// 1280px
+	"medium-desktop": $screen-size-1,
+	// 568px
+	"handset-landscape": $screen-size-2,
+	// 320px
+	"handset-portrait": $screen-size-3
+);
+
+$screen-x-large-desktop: map-get($screens, "large-desktop");
+$screen-medium-desktop: map-get($screens, "medium-desktop");
+$screen-handset-landscape: map-get($screens, "handset-landscape");
+$screen-handset-portrait: map-get($screens, "handset-portrait");

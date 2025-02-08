@@ -1,0 +1,20 @@
+@import './variables';
+@import './colors';
+@import './typography';
+
+@mixin button {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	padding: 8px 20px;
+	font-family: $szss-font-primary;
+	border: 1px solid transparent;
+	border: 0;
+	border-radius: 25px;
+	transition: all 0.3s;
+	text-wrap: nowrap;
+
+	@include font-style(13px, 0.3px, 18px, 600);
+}

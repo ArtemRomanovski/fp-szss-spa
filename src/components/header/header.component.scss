@@ -1,0 +1,54 @@
+@import 'index';
+
+:host {
+	display: flex;
+	justify-content: center;
+}
+
+.header-container {
+	max-width: 1150px;
+	min-height: 70px;
+	flex-direction: row;
+	gap: 20px;
+
+	// > 1920
+	@include screen-x-large-desktop {
+
+	}
+	// 1280 - 1919
+	@include screen-medium-desktop {
+
+	}
+	// > 1280 portrait and > 1280 landscape
+	@include screen-all-desktops {
+
+	}
+
+	// < 1279 portrait
+	@include screen-all-mobiles-portrait {
+
+	}
+	// < 1279 landscape
+	@include screen-all-mobiles-landscape {
+
+	}
+
+	// < 1279 portrait and < 1279 landscape
+	@include screen-all-mobiles {
+
+	}
+}
+
+.tabs {
+	@include font-style(12px);
+
+	white-space: nowrap;
+}
+
+.call {
+	&-btn {
+		@include button;
+
+		border: 1px solid #007BF3;
+	}
+}

@@ -22,7 +22,13 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "baseUrl": ".",
+    "paths" : {
+        "@fp-szss/components": ["src/components"],
+        "@fp-szss/pages": ["src/pages"],
+        "@fp-szss/shared": ["src/shared"],
+      }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -1,1 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'index';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: none;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+	height: 100vh;
+	font-family: $szss-font-primary;
+	font-size: 12px;
+	font-weight: 400;
+}
+
+ul {
+	width: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+li {
+	list-style: none;
+}
+
+p {
+	margin: 0;
+}
