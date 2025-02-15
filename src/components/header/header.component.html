@@ -1,37 +1,49 @@
-<div class="header-container d-flex-center-between">
-	<div class="logo-container d-flex">
-		<img class="logo" src="assets/logo.png" alt="logo" width="140" height="70" />
-	</div>
+<ng-container *ngIf="vm$ | async as vm">
+	<div class="header-container d-flex-center-between">
+		<div class="logo-container d-flex" (click)="navigateHome()">
+			<img
+				class="logo"
+				src="assets/logo.png"
+				alt="logo"
+				width="140"
+				height="70"
+			/>
+		</div>
 
-	<nav class="navigation-container d-flex">
-		<ul class="tabs d-flex-center-between g-20">
-			<li class="tab d-flex">
-				О компании
-			</li>
-			<li class="tab d-flex">
-				Наши объекты
-			</li>
-			<li class="tab d-flex">
-				Направления деятельности
-			</li>
-			<li class="tab d-flex">
-				Продукция
-			</li>
-			<li class="tab d-flex">
-				Новости
-			</li>
-			<li class="tab d-flex">
-				Вакансии
-			</li>
-			<li class="tab d-flex">
-				Контакты
-			</li>
-		</ul>
-	</nav>
+		<nav
+			class="navigation-container d-flex"
+			[ngClass]="{ hidden: vm.isMobileScreen }"
+		>
+			<ul class="tabs d-flex-center-between g-4">
+				<li
+					*ngFor="let tab of tabs; trackBy: trackByValue"
+					class="tab p-4 d-flex"
+					[class.active]="tab === vm.tab"
+					(click)="navigateToTab(tab)"
+				>
+					{{ tabsName[tab] }}
+				</li>
+			</ul>
+		</nav>
 
-	<div class="call-container">
-		<button class="call-btn">
-			+7(812) 292-44-99
-		</button>
+		<div class="d-flex g-14">
+			<div class="call-container">
+				<button class="call-btn">+7(812) 292-44-99</button>
+			</div>
+
+			<div
+				class="menu-icon d-flex"
+				[ngClass]="{ hidden: vm.isAllDesktops }"
+				(click)="openMenuPanel($event)"
+			>
+				<img
+					class="menu"
+					src="assets/menu.svg"
+					alt="logo"
+					width="30"
+					height="22"
+				/>
+			</div>
+		</div>
 	</div>
-</div>
+</ng-container>

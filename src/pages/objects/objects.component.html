@@ -1,1 +1,32 @@
-<p>objects works!</p>
+<ng-container *ngIf="vm$ | async as vm">
+	<p>objects works!</p>
+
+	<ul class="tabs d-flex-center-between g-4">
+		<li
+			*ngFor="let tab of tabs; trackBy: trackByValue"
+			class="tab p-4 d-flex"
+			(click)="navigateToTab(tab)"
+		>
+			{{ tabsName[tab] }}
+		</li>
+	</ul>
+
+	<div [ngSwitch]="vm.tab">
+		<div *ngSwitchCase="tabs[0]">
+			<fp-szss-bulding />
+		</div>
+		<div *ngSwitchCase="tabs[1]">
+			<fp-szss-construction-control />
+		</div>
+		<div *ngSwitchCase="tabs[2]">
+			<fp-szss-design />
+		</div>
+		<div *ngSwitchCase="tabs[3]">
+			<fp-szss-maintenance-service />
+		</div>
+		<div *ngSwitchCase="tabs[4]">
+			<fp-szss-technical-equipment />
+		</div>
+		<!--<div *ngSwitchDefault></div>-->
+	</div>
+</ng-container>

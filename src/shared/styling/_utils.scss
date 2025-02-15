@@ -108,7 +108,7 @@
 	}
 }
 
-@each $value in 0, 2, 4, 8, 12, 16, 20 {
+@each $value in 0, 2, 4, 8, 12, 14, 16, 20 {
 	.g-#{$value} {
 		gap: #{$value}px;
 	}

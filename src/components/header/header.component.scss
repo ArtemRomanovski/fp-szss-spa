@@ -6,49 +6,76 @@
 }
 
 .header-container {
+	width: 100%;
 	max-width: 1150px;
 	min-height: 70px;
 	flex-direction: row;
+	padding: 0 5px;
 	gap: 20px;
 
 	// > 1920
 	@include screen-x-large-desktop {
-
 	}
-	// 1280 - 1919
+	// 1150 - 1919
 	@include screen-medium-desktop {
-
 	}
-	// > 1280 portrait and > 1280 landscape
+	// > 1150 portrait and > 1150 landscape
 	@include screen-all-desktops {
-
 	}
 
-	// < 1279 portrait
+	// < 1149 portrait
 	@include screen-all-mobiles-portrait {
-
 	}
-	// < 1279 landscape
+	// < 1149 landscape
 	@include screen-all-mobiles-landscape {
-
 	}
 
-	// < 1279 portrait and < 1279 landscape
+	// < 1149 portrait and < 1149 landscape
 	@include screen-all-mobiles {
-
 	}
 }
 
-.tabs {
-	@include font-style(12px);
+.logo-container {
+	cursor: pointer;
+}
 
-	white-space: nowrap;
+.navigation-container {
+	height: 100%;
+	padding: 16px 0;
+}
+
+.tab {
+	height: inherit;
+	padding: 4px;
+	//background-color: $szss-color-primary;
+	cursor: pointer;
+
+	&:hover {
+		border-bottom: 2px solid $szss-color-primary;
+	}
+
+	&s {
+		@include font-style(12px);
+
+		//background-color: red;
+		height: inherit;
+		white-space: nowrap;
+	}
 }
 
 .call {
 	&-btn {
 		@include button;
 
-		border: 1px solid #007BF3;
+		border: 1px solid $szss-color-primary;
 	}
+}
+
+.menu-icon {
+	padding: 12px 8px;
+	cursor: pointer;
+}
+
+.hidden {
+	display: none;
 }
