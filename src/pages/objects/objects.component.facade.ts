@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { BreakpointService } from '@fp-szss/services';
 import { breakpoints } from '@fp-szss/shared/data';
-import { combineLatest, map, Observable, skip, startWith, tap } from 'rxjs';
+import { combineLatest, filter, map, Observable, skip, startWith, tap } from 'rxjs';
 import { ObjectsTab, routerLinksMap, tabs } from './constans';
 import { Dictionary } from 'src/components/header/constans';
 
@@ -31,16 +31,14 @@ export class ObjectsFacade {
 	}
 
 	navigateToTab(tab: ObjectsTab): void {
-		this.router.navigate(['.'], {
-			queryParams: { tab: routerLinksMap[tab] },
+		this.router.navigate([routerLinksMap[tab]], {
 			relativeTo: this.activatedRoute,
-			queryParamsHandling: 'merge',
 		});
 	}
 
 	private buildViewModel(): Observable<ObjectsViewModel> {
 		return combineLatest({
-			tab: this.getTab(),
+			tab: this.getTab().pipe(startWith(initialState.tab)),
 			isAllDesktops: this.breakpoint.getMatches(
 				breakpoints.screenAllDesktops,
 			),
@@ -48,33 +46,33 @@ export class ObjectsFacade {
 				breakpoints.screenAllMobiles,
 			),
 		}).pipe(
+			startWith(initialState),
 			map(({ tab, isAllDesktops, isMobileScreen }) => ({
 				tab,
 				isAllDesktops,
 				isMobileScreen,
 			})),
-			startWith(initialState),
+		);
+	}
+
+	private getTab(): Observable<string> {
+		return this.router.events.pipe(
+			filter(event => event instanceof NavigationEnd),
+			map((route) => {
+				const lastSegment = route.url.split('/').pop();
+
+				if (!lastSegment) {
+					this.navigateHome();
+				}
+
+				return getKeyByValue(routerLinksMap, lastSegment as string)
+					|| routerLinksMap[ObjectsTab.Building];
+			}),
 		);
 	}
 
 	openMenuPanel(): void {
 		console.log('menu panel is open');
-	}
-
-	private getTab(): Observable<string> {
-		return this.activatedRoute.queryParams.pipe(
-			skip(1),
-			map<Params, string>(({ tab }) => {
-				if (!tab) {
-					this.navigateHome();
-				}
-
-				return (
-					getKeyByValue(routerLinksMap, tab) ||
-					routerLinksMap[ObjectsTab.Building]
-				);
-			}),
-		);
 	}
 }
 

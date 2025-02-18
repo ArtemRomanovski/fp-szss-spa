@@ -4,7 +4,7 @@ import { ObjectsTab, objectsTabMap, routerLinksMap, tabs } from './constans';
 import { trackByValue } from '@fp-szss/shared/utils';
 import { CommonModule } from '@angular/common';
 import { ObjectsFacade } from './objects.component.facade';
-import { BuldingComponent } from './bulding/bulding.component';
+import { BuildingComponent } from './building/building.component';
 import { ConstructionControlComponent } from './construction-control/construction-control.component';
 import { DesignComponent } from './design/design.component';
 import { MaintenanceServiceComponent } from './maintenance-service/maintenance-service.component';
@@ -15,7 +15,7 @@ import { TechnicalEquipmentComponent } from './technical-equipment/technical-equ
 	standalone: true,
 	imports: [
 		CommonModule,
-		BuldingComponent,
+		BuildingComponent,
 		ConstructionControlComponent,
 		DesignComponent,
 		MaintenanceServiceComponent,

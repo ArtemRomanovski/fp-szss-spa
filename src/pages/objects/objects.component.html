@@ -1,32 +1,56 @@
 <ng-container *ngIf="vm$ | async as vm">
-	<p>objects works!</p>
+	<div class="objects-container">
+		<span class="h2">Наши объекты</span>
 
-	<ul class="tabs d-flex-center-between g-4">
-		<li
-			*ngFor="let tab of tabs; trackBy: trackByValue"
-			class="tab p-4 d-flex"
-			(click)="navigateToTab(tab)"
-		>
-			{{ tabsName[tab] }}
-		</li>
-	</ul>
+		<pre>{{ vm$ | async | json }}</pre>
 
-	<div [ngSwitch]="vm.tab">
-		<div *ngSwitchCase="tabs[0]">
-			<fp-szss-bulding />
+		<div class="tabs-container" >
+			<ul
+				class="tabs g-10"
+				[ngClass]="{
+					'd-flex-column': vm.isMobileScreen,
+					'd-flex-row': !vm.isMobileScreen && vm.isAllDesktops
+				}"
+			>
+				<li
+					*ngFor="let tab of tabs; trackBy: trackByValue"
+					class="tab d-flex-center"
+					(click)="navigateToTab(tab)"
+				>
+					<div class="tab-content d-flex-center">
+						
+						{{ tabsName[tab] }}
+						<img
+							class="menu"
+							src="assets/arrow-left.svg"
+							alt="logo"
+							width="35"
+							height="35"
+						/>
+					</div>
+				</li>
+			</ul>
 		</div>
-		<div *ngSwitchCase="tabs[1]">
-			<fp-szss-construction-control />
+
+		<div [ngSwitch]="vm.tab">
+			<div *ngSwitchCase="tabs[0]">
+				<fp-szss-design />
+			</div>
+			<div *ngSwitchCase="tabs[1]">
+				<fp-szss-building />
+			</div>
+			<div *ngSwitchCase="tabs[2]">
+				<fp-szss-technical-equipment />
+			</div>
+			<div *ngSwitchCase="tabs[3]">
+				<fp-szss-construction-control />
+			</div>
+			<div *ngSwitchCase="tabs[4]">
+				<fp-szss-maintenance-service />
+			</div>
+			<div *ngSwitchDefault>
+				<fp-szss-design />
+			</div>
 		</div>
-		<div *ngSwitchCase="tabs[2]">
-			<fp-szss-design />
-		</div>
-		<div *ngSwitchCase="tabs[3]">
-			<fp-szss-maintenance-service />
-		</div>
-		<div *ngSwitchCase="tabs[4]">
-			<fp-szss-technical-equipment />
-		</div>
-		<!--<div *ngSwitchDefault></div>-->
 	</div>
 </ng-container>

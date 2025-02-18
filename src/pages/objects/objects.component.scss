@@ -1,0 +1,32 @@
+@import 'index';
+@import 'typography';
+
+.objects {
+	&-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		padding: 100px 150px;
+		gap: 50px;
+	}
+}
+
+.tab {
+	color: $szss-color-text-light;
+
+	@include font-style(14px, 0, 25px, 700);
+	text-transform: uppercase;
+
+	width: 220px;
+	height: 130px;
+	border: 1px solid inherit;
+	border-radius: 20px;
+	background-color: $szss-color-primary;
+
+	&-content {
+		flex-wrap: nowrap;
+		width: min-content;
+	}
+}

@@ -6,7 +6,11 @@
 }
 
 .d-flex {
- 	@include flex;
+	@include flex;
+
+	&-row {
+		flex-direction: row;
+	}
 
 	&-start {
 		display: flex;
@@ -108,7 +112,7 @@
 	}
 }
 
-@each $value in 0, 2, 4, 8, 12, 14, 16, 20 {
+@each $value in 0, 2, 4, 8, 10, 12, 14, 16, 20 {
 	.g-#{$value} {
 		gap: #{$value}px;
 	}

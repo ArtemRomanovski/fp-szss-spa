@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 	templateUrl: './construction-control.component.html',
 	styleUrl: './construction-control.component.scss',
 })
-export class ConstructionControlComponent {}
+export class ConstructionControlComponent {
+
+	ngOnDestroy() {
+		console.log('ConstructionControlComponent уничтожен');
+	}
+}

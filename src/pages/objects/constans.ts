@@ -9,11 +9,11 @@ export enum ObjectsTab {
 }
 
 export const tabs = [
-	ObjectsTab.Building,
-	ObjectsTab.ConstructionControl,
 	ObjectsTab.Design,
-	ObjectsTab.MaintenanceService,
+	ObjectsTab.Building,
 	ObjectsTab.TechnicalEquipment,
+	ObjectsTab.ConstructionControl,
+	ObjectsTab.MaintenanceService,
 ];
 
 export const objectsTabMap: Dictionary<string> = {

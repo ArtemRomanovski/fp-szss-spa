@@ -1,15 +1,14 @@
 import { Routes } from '@angular/router';
-
 export const objectRoutes: Routes = [
 	{
-		path: 'bulding',
+		path: 'building',
 		loadComponent: () =>
-			import('./bulding/bulding.component').then(
-				(m) => m.BuldingComponent,
+			import('./building/building.component').then(
+				(m) => m.BuildingComponent,
 			),
 	},
 	{
-		path: 'constructionControl',
+		path: 'construction-control',
 		loadComponent: () =>
 			import(
 				'./construction-control/construction-control.component'
@@ -21,14 +20,14 @@ export const objectRoutes: Routes = [
 			import('./design/design.component').then((m) => m.DesignComponent),
 	},
 	{
-		path: 'maintenanceService',
+		path: 'maintenance-service',
 		loadComponent: () =>
 			import('./maintenance-service/maintenance-service.component').then(
 				(m) => m.MaintenanceServiceComponent,
 			),
 	},
 	{
-		path: 'technicalEquipment',
+		path: 'technical-equipment',
 		loadComponent: () =>
 			import('./technical-equipment/technical-equipment.component').then(
 				(m) => m.TechnicalEquipmentComponent,
