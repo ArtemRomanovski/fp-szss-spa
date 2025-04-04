@@ -1,0 +1,130 @@
+@import 'index';
+
+:host {
+	display: flex;
+	justify-content: center;
+
+	background-color: $szss-color-primary-7;
+}
+
+.footer-container {
+	width: 100%;
+	max-width: 1150px;
+
+	padding: 80px 0px 70px;
+
+	height: 300px;
+
+	color: $szss-color-text-light;
+
+	// > 1920
+	@include screen-x-large-desktop {
+	}
+	// 1150 - 1919
+	@include screen-medium-desktop {
+	}
+	// > 1150 portrait and > 1150 landscape
+	@include screen-all-desktops {
+	}
+
+	// < 1149 portrait
+	@include screen-all-mobiles-portrait {
+	}
+	// < 1149 landscape
+	@include screen-all-mobiles-landscape {
+	}
+
+	// < 1149 portrait and < 1149 landscape
+	@include screen-all-mobiles {
+		height: auto;
+
+		padding: 60px 40px;
+		gap: 30px;
+
+		align-items: flex-start;
+	}
+}
+
+.tab {
+	height: 14px;
+	cursor: pointer;
+
+	&:hover {
+		border-bottom: 2px solid $szss-color-text-light;
+	}
+
+	&s {
+		@include font-style(14px);
+
+		height: 14px;
+		width: 100%;
+		white-space: nowrap;
+		margin-left: 10px;
+
+		&.mobile {
+			height: auto;
+		}
+	}
+
+	&.mobile {
+		padding: 0;
+	}
+}
+
+.navigation-container {
+	width: 100%;
+	margin-bottom: 12px;
+	border-bottom: 1px solid white;
+	padding-bottom: 48px;
+}
+
+.contact {
+	&-container {
+		position: relative;
+		width: 100%;
+		padding-top: 18px;
+
+		&.mobile {
+			display: flex;
+			margin-left: 10px;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	&-legal {
+		position: absolute;
+		right: -12px;
+
+		@include screen-all-mobiles {
+			position: relative;
+			right: 0;
+
+			@include font-style(14px, 0px, 105%, 400);
+
+			.logo {
+				display: none;
+			}
+		}
+	}
+
+	&-address {
+		width: 260px;
+	}
+
+	&-phone {
+		width: 150px;
+	}
+}
+
+.mobile {
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 16px;
+
+	&.tab {
+		:hover {
+			background-color: red;
+		}
+	}
+}

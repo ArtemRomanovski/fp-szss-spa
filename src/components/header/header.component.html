@@ -15,14 +15,15 @@
 			[ngClass]="{ hidden: vm.isMobileScreen }"
 		>
 			<ul class="tabs d-flex-center-between g-4">
-				<li
-					*ngFor="let tab of tabs; trackBy: trackByValue"
-					class="tab p-4 d-flex"
-					[class.active]="tab === vm.tab"
-					(click)="navigateToTab(tab)"
-				>
-					{{ tabsName[tab] }}
-				</li>
+				@for (tab of tabs; track tab) {
+					<li
+						class="tab p-4 d-flex"
+						[class.active]="tab === vm.tab"
+						(click)="navigateToTab(tab)"
+					>
+						{{ tabsName[tab] }}
+					</li>
+				}
 			</ul>
 		</nav>
 

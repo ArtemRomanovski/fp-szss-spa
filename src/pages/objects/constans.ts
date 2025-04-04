@@ -1,4 +1,4 @@
-import { Dictionary } from 'src/components/header/constans';
+import { Dictionary } from 'src/shared/data/constans';
 
 export enum ObjectsTab {
 	Building = 'building',

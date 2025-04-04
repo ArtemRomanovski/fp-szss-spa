@@ -1,11 +1,14 @@
 <div class="app-layout">
 	<div class="app-layout-wrapper">
-		<fp-szss-header></fp-szss-header>
+		<fp-szss-header />
 		<span class="separator"></span>
 
 		<div class="app-layout-body-wrapper d-flex">
-			<div class="app-layout-body">
-				<router-outlet></router-outlet>
+			<div class="app-layout-body d-flex-column-between">
+				<div>
+					<router-outlet />
+				</div>
+				<fp-szss-footer />
 			</div>
 		</div>
 	</div>

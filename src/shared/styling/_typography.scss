@@ -10,30 +10,28 @@
 	letter-spacing: $letter-spacing !important;
 }
 
-@mixin typography {
-	&.h1 {
-		@include font-style(43px, 0px, 47.3px, 500);
-	}
+.h1 {
+	@include font-style(43px, 0px, 47.3px, 500);
+}
 
-	&.h1-mob {
-		@include font-style(22px, 0px, 26.4px, 500);
-	}
+.h1-mob {
+	@include font-style(22px, 0px, 26.4px, 500);
+}
 
-	&.h2 {
-		@include font-style(28px, 0px, 36.4px, 500);
-	}
+.h2 {
+	@include font-style(28px, 0px, 36.4px, 500);
+}
 
-	&.h2-bold {
-		@include font-style(28px, 0px, 36.4px, 600);
-	}
+.h2-bold {
+	@include font-style(28px, 0px, 36.4px, 600);
+}
 
-	&.h2-mob {
-		@include font-style(22px, 0px, 28.6px, 500);
-	}
+.h2-mob {
+	@include font-style(22px, 0px, 28.6px, 500);
+}
 
-	&.h3 {
-		@include font-style(20px, 0px, 30px, 500);
-	}
+.h3 {
+	@include font-style(20px, 0px, 30px, 500);
 }
 
 // TODO: create different classes

@@ -1,9 +1,20 @@
 import { inject, Injectable } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Params, Router } from '@angular/router';
 import { BreakpointService } from '@fp-szss/services';
 import { breakpoints } from '@fp-szss/shared/data';
-import { combineLatest, map, Observable, skip, startWith, tap } from 'rxjs';
-import { NavigationTab, routerLinksMap, tabs } from './constans';
+import {
+	combineLatest,
+	filter,
+	map,
+	Observable,
+	startWith,
+	tap,
+} from 'rxjs';
+import {
+	NavigationTab,
+	routerLinksMap,
+} from '../../shared/data/constans';
+import { getKeyByValue } from 'src/pages/objects/objects.component.facade';
 
 export interface HeaderViewModel {
 	isAllDesktops: boolean;
@@ -20,6 +31,7 @@ const initialState: HeaderViewModel = {
 export class HeaderFacade {
 	private router: Router = inject(Router);
 	private breakpoint: BreakpointService = inject(BreakpointService);
+	private activeRoute: ActivatedRoute = inject(ActivatedRoute);
 
 	vm$ = this.buildViewModel();
 
@@ -40,15 +52,29 @@ export class HeaderFacade {
 			isMobileScreen: this.breakpoint.getMatches(
 				breakpoints.screenAllMobiles,
 			),
+			tab: this.getCurrentTab(),
 		}).pipe(
 			tap((res) => console.log(res)),
-			map(({ isAllDesktops, isMobileScreen }) => {
+			map(({ isAllDesktops, isMobileScreen, tab }) => {
 				return {
 					isAllDesktops,
 					isMobileScreen,
+					tab,
 				};
 			}),
 			startWith(initialState),
+		);
+	}
+
+	getCurrentTab(): Observable<any> {
+		return this.router.events.pipe(
+			filter((event) => event instanceof NavigationEnd),
+			map(() => this.router.url),
+			map((url) => {
+				const tab = url.split('/').filter(Boolean).shift();
+
+				return getKeyByValue(routerLinksMap, tab as string) || '';
+			}),
 		);
 	}
 

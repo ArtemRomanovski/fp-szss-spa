@@ -1,0 +1,40 @@
+@import 'index';
+
+:host {
+	color: $szss-color-text-light;
+}
+
+.technical-equipment {
+	&-overview {
+		width: 100%;
+		background-color: $szss-color-primary-5;
+		background-image: url('/assets/LooperGroup.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		padding: 100px 300px;
+		color: $szss-color-text-light;
+		text-align: center;
+	}
+}
+
+.overview-conteiner {
+	max-width: 850px;
+}
+
+.title {
+	text-transform: uppercase;
+
+	&-container {
+		padding: 0 130px;
+	}
+}
+
+.sub-title {
+	@include font-style(16px, 0px, 180%, 400);
+}
+
+.text {
+	padding: 0px 60px;
+	@include font-style(14px, 0px, 218%, 500);
+}

@@ -4,7 +4,11 @@ import { breakpointMap, breakpoints } from '@fp-szss/shared/data';
 import { combineLatest, map, Observable, startWith, tap } from 'rxjs';
 import { HeaderFacade } from './header.component.facade';
 import { CommonModule } from '@angular/common';
-import { NavigationTab, navigationTabMap, tabs } from './constans';
+import {
+	NavigationTab,
+	navigationTabMap,
+	tabs,
+} from '../../shared/data/constans';
 import { trackByValue } from '@fp-szss/shared/utils';
 
 @Component({

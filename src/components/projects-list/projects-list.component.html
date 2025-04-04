@@ -1,0 +1,68 @@
+<div class="projects-list-wrapper d-flex-column-center">
+	<h2 class="h2">Проекты</h2>
+
+	<ul class="projects-list d-flex-column-between">
+		@for (project of dataList; track project) {
+			<!--[class.active]="tab === vm.tab"-->
+			<li class="project-container d-flex-start">
+				<div class="image-container">
+					<img
+						class=""
+						[src]="getImagePath(project)"
+						alt=""
+						width="550"
+						height="340"
+					/>
+				</div>
+				<div class="content-container">
+					<p class="title">
+						{{ project.projectName }}
+					</p>
+
+					<div class="overview">
+						@if (hasField(project, 'industry')) {
+							<p>
+								Отрасль заказчика:
+								<span class="text-light">{{
+									project.industry
+								}}</span>
+							</p>
+						}
+						@if (hasField(project, 'sections')) {
+							<p>
+								Разделы:
+								<span class="text-light">{{
+									project.sections
+								}}</span>
+							</p>
+						}
+						@if (hasField(project, 'completionYear')) {
+							<p>
+								Год окончания работ:
+								<span class="text-light">{{
+									project.completionYear
+								}}</span>
+							</p>
+						}
+						@if (hasField(project, 'square')) {
+							<p>
+								Площадь:
+								<span class="text-light">{{
+									project.square
+								}}</span>
+							</p>
+						}
+					</div>
+
+					<span class="separator"></span>
+
+					@if (hasField(project, 'description')) {
+						<div>
+							{{ project.description }}
+						</div>
+					}
+				</div>
+			</li>
+		}
+	</ul>
+</div>

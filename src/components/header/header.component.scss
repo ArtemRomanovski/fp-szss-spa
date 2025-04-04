@@ -7,10 +7,10 @@
 
 .header-container {
 	width: 100%;
-	max-width: 1150px;
+	max-width: 1152px;
 	min-height: 70px;
 	flex-direction: row;
-	padding: 0 5px;
+	margin-right: 12px;
 	gap: 20px;
 
 	// > 1920
@@ -47,7 +47,6 @@
 .tab {
 	height: inherit;
 	padding: 4px;
-	//background-color: $szss-color-primary;
 	cursor: pointer;
 
 	&:hover {
@@ -57,7 +56,6 @@
 	&s {
 		@include font-style(12px);
 
-		//background-color: red;
 		height: inherit;
 		white-space: nowrap;
 	}
@@ -78,4 +76,8 @@
 
 .hidden {
 	display: none;
+}
+
+.active {
+	font-weight: 600;
 }

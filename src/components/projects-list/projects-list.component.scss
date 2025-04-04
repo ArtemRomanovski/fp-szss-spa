@@ -1,0 +1,59 @@
+@import 'index';
+
+:host {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+
+	color: black;
+}
+
+.projects-list {
+	max-width: 1140px;
+	width: 100%;
+	gap: 80px;
+
+	&-wrapper {
+		width: 100%;
+		padding: 150px;
+		gap: 50px;
+	}
+}
+
+.project-container {
+	width: 100%;
+	gap: 30px;
+}
+
+.content-container {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	gap: 20px;
+
+	@include font-style(14px, 0, 200%, 500);
+	font-family: Montserrat;
+	font-variant: small-caps;
+}
+
+.title {
+	margin-top: 15px;
+
+	@include font-style(20px, 0, 150%, 500);
+	font-family: Montserrat;
+	font-variant: small-caps;
+}
+
+.overview {
+	gap: 10px;
+}
+
+.text-light {
+	@include font-style(14px, 0, 218%, 400);
+}
+
+.separator {
+	border-bottom: 1px solid $szss-color-primary-2;
+}

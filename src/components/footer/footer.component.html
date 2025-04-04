@@ -1,1 +1,74 @@
-<p>footer works!</p>
+<ng-container *ngIf="vm$ | async as vm">
+	<div class="footer-container d-flex-column-center">
+		<div *ngIf="vm.isMobileScreen">
+			<img
+				class="logo"
+				src="assets/logo-white.png"
+				alt="logo"
+				width="140"
+				height="70"
+			/>
+		</div>
+		<nav class="navigation-container d-flex">
+			<ul
+				class="tabs d-flex-center-between g-4"
+				[ngClass]="{
+					mobile: vm.isMobileScreen,
+				}"
+			>
+				@for (tab of tabs; track tab) {
+					<li
+						class="tab p-4 d-flex"
+						[ngClass]="{
+							mobile: vm.isMobileScreen,
+						}"
+						(click)="navigateToTab(tab)"
+					>
+						{{ tabsName[tab] }}
+					</li>
+				}
+			</ul>
+		</nav>
+
+		<div
+			class="contact-container d-flex-center-between"
+			[ngClass]="{
+				mobile: vm.isMobileScreen,
+			}"
+		>
+			<div
+				class="d-flex-between g-32"
+				[ngClass]="{
+					mobile: vm.isMobileScreen,
+					'd-flex-column-revers': vm.isMobileScreen,
+				}"
+			>
+				<span class="contact-address"
+					>194223, г. Санкт-Петербург, пр. Светлановский, д. 11, литер
+					А</span
+				>
+				<div class="d-flex-column">
+					<span class="contact-phone">+7(812) 292-44-99</span>
+					<span class="contact-email">info&#64;nwssv.ru</span>
+				</div>
+			</div>
+			<div class="contact-legal d-flex-center-between g-8">
+				<div class="d-flex-column">
+					<span>ООО «СЗСС»</span>
+					<span>ОГРН 1157847070237</span>
+					<span>ИНН 7813215630</span>
+					<span>КПП 780201001</span>
+				</div>
+
+				<img
+					class="logo"
+					src="assets/logo-white.png"
+					alt="logo"
+					A
+					width="140"
+					height="70"
+				/>
+			</div>
+		</div>
+	</div>
+</ng-container>
