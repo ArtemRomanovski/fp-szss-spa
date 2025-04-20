@@ -1,0 +1,40 @@
+@import 'index';
+
+.activity-areas-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 100px 150px;
+	color: $szss-color-text;
+}
+
+.activity-container {
+	max-width: 945px;
+	padding: 25px 60px;
+	border: 1px solid $szss-color-primary;
+	border-radius: 20px;
+
+	@include font-style(20px, 0, 150%, 500);
+
+	.title {
+		max-width: 680px;
+	}
+}
+
+.activity-content {
+	overflow: hidden;
+	padding-left: 32px;
+	
+	@include font-style(14px, 0, 200%, 400);
+	color: $szss-color-text;
+	white-space: pre-line;
+}
+
+.h2 {
+	text-align: center;
+}
+
+.ellipse-icon {
+	cursor: pointer;
+}

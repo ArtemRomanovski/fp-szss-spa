@@ -1,1 +1,39 @@
-<p>areasofactivity works!</p>
+<ng-container>
+	<div class="activity-areas-container g-50">
+		<h2 class="h2">Направления деятельности</h2>
+
+		<ul class="activity-list d-flex-column-between g-20">
+			@for (activityItem of activities; track activityItem; let index = $index) {
+				<li class="activity-container">
+					<div class="d-flex-center-between g-8">
+						<p class="title">
+							{{ activityItem.title }}
+						</p>
+
+						<div
+							class="ellipse-icon d-flex"
+							(click)="seeAll(index)"
+						>
+							<img
+								class="ellipse"
+								src="assets/ellipse.svg"
+								alt="logo"
+								width="50"
+								height="50"
+							/>
+						</div>
+					</div>
+					
+					@if (activityItem.content) {
+						<div
+							[@expandCollapse]="isShow(index) ? 'expanded' : 'collapsed'"
+							class="activity-content"
+						>
+							{{ activityItem.content }}
+						</div>
+					}
+				</li>
+			}
+		</ul>
+	</div>
+</ng-container>
