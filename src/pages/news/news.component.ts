@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { newsDataItem, newsDataList } from './constants';
 
 @Component({
 	selector: 'fp-szss-news',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 	templateUrl: './news.component.html',
 	styleUrl: './news.component.scss',
 })
-export class NewsComponent {}
+export class NewsComponent {
+	protected readonly dataList = newsDataList;
+
+	public getImagePath(newsItem: newsDataItem): string {
+		return newsItem.imagePath || '';
+	}
+}

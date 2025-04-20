@@ -1,1 +1,40 @@
-<p>news works!</p>
+<div class="news-container g-50">
+	<h2 class="h2">Новости</h2>
+
+	<ul class="news-list d-flex-column-between g-50">
+		@for (newsItem of dataList; track newsItem) {
+
+			<li class="d-flex-start g-30 pb-30">
+				<div class="image-container">
+					<img
+						class=""
+						[src]="getImagePath(newsItem)"
+						alt=""
+						width="260"
+						height="230"
+					/>
+				</div>
+
+				<div class="content-container d-flex-column-start g-16">
+					<div class="g-8">
+						<p class="news-title">
+							{{ newsItem.title }}
+						</p>
+	
+						<p class="news-date">
+							{{ newsItem.createdDate }}
+						</p>
+					</div>
+
+					<p class="news-content">
+						{{ newsItem.content }}
+
+						@if (newsItem.link) {
+							<br><br><a class="link" href="newsItem.link.path">{{ newsItem.link.title }}</a>
+						}
+					</p>
+				</div>
+			</li>
+		}
+	</ul>
+</div>

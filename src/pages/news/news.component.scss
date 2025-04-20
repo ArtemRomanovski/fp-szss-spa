@@ -1,0 +1,40 @@
+@import 'index';
+
+:host {
+	display: flex;
+	justify-content: center;
+}
+
+.news {
+	&-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+		max-width: 1140px;
+		padding: 100px 0;
+		color: $szss-color-text;
+	}
+
+	&-list > li {
+		border-bottom: 1px solid $szss-color-primary;
+	}
+
+	&-title {
+		@include font-style(16px, 0, 150%, 500);
+	}
+
+	&-date {
+		@include font-style(13px, 0, 150%, 500);
+		color: $szss-color-primary;
+	}
+
+	&-content {
+		@include font-style(12px, 0, 150%, 400);
+	}
+}
+
+.link {
+	color: $szss-color-primary;
+}
